@@ -41,7 +41,7 @@ def start():
     """
     print(json.dumps(data))
 
-    color = "#00ffff"
+    color = "#00ff17"
 
     return start_response(color)
 
