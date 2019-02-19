@@ -86,7 +86,7 @@ def move():
 directions = ['up', 'down', 'left', 'right']
 if my_position_x[0] == 0:
     if my_position_y[0] == 0:
-        if my_position_x[1] == -1:
+        if my_position_x[1] == 1:
             direction = 'right'
             else:
                 direction = 'right'
