@@ -126,10 +126,10 @@ elif my_position_y[0] == height-1 and my_position_x[0] != 0 and my_position_x[0]
             direction = 'down'
 else:
     if my_position_x[1] == my_position_x[0] - 1:
-        direction = 'right'
+        direction = 'down'
         elif my_position_x[1] == my_position_x[0] + 1:
             direction = 'left'
-    elif my_position_y[1] == my_position_y - 1:
+    elif my_position_y[1] == my_position_y[0] - 1:
         direction = 'right'
         else:
             direction = 'down'
@@ -141,11 +141,11 @@ return move_response(direction)
 @bottle.post('/end')
 def end():
     data = bottle.request.json
-    
-    """
-        TODO: If your snake AI was stateful,
-        clean up any stateful objects here.
-        """
+
+    ('\n'
+     '        TODO: If your snake AI was stateful,\n'
+     '        clean up any stateful objects here.\n'
+     '        ')
     print("end part")
     print("================")
     # print(json.dumps(data))
