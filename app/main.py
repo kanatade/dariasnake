@@ -87,7 +87,7 @@ directions = ['up', 'down', 'left', 'right']
 if my_position_x[0] == 0:
     if my_position_y[0] == 0:
         if my_position_x[1] == -1:
-            direction = 'up'
+            direction = 'right'
             else:
                 direction = 'right'
     elif my_position_y[0] == height-1:
@@ -102,7 +102,7 @@ if my_position_x[0] == 0:
 elif my_position_x[0] == width-1:
     if my_position_y[0] == 0:
         if my_position_x[1] == width-2:
-            direction = 'up'
+            direction = 'right'
             else:
                 direction = 'left'
     elif my_position_y[0] == height-1:
@@ -118,7 +118,7 @@ elif my_position_y[0] == 0 and my_position_x[0] != 0 and my_position_x[0] != wid
     if my_position_y[1] == 1:
         direction = 'left'
         else:
-            direction = 'up'
+            direction = 'right'
 elif my_position_y[0] == height-1 and my_position_x[0] != 0 and my_position_x[0] != width-1:
     if my_position_y[1] == height - 2:
         direction = 'right'
@@ -130,7 +130,7 @@ else:
         elif my_position_x[1] == my_position_x[0] + 1:
             direction = 'left'
     elif my_position_y[1] == my_position_y - 1:
-        direction = 'up'
+        direction = 'right'
         else:
             direction = 'down'
 
