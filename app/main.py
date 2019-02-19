@@ -5,8 +5,6 @@ import bottle
 
 from api import ping_response, start_response, move_response, end_response
 
-json_string = json.dumps(datastore)
-datastore = json.loads(json_string)
 
 @bottle.route('/')
 def index():
@@ -143,13 +141,10 @@ return move_response(direction)
 def end():
     data = bottle.request.json
 
-    ''('\n'
-     '        TODO: If your snake AI was stateful,\n'
-     '        clean up any stateful objects here.\n'
-     '        ')''
+
     print("end part")
     print("================")
-    # print(json.dumps(data))
+    #print(json.dumps(data))
     
     return end_response()
 
