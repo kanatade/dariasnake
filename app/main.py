@@ -69,7 +69,7 @@ def move():
     height = game_data["board"]["height"]
     width = game_data["board"]["width"]
     
-    # to get my postion
+    # to get my position
     my_position_x = []
     my_position_y = []
     for i in range(0, len(game_data["you"]["body"])):
@@ -86,53 +86,53 @@ def move():
 directions = ['up', 'down', 'left', 'right']
 if my_position_x[0] == 0:
     if my_position_y[0] == 0:
-        if my_position_x[1] == 1:
-            direction = 'down'
+        if my_position_x[1] == -1:
+            direction = 'up'
             else:
                 direction = 'right'
     elif my_position_y[0] == height-1:
         if my_position_x[1] == 1:
-            direction = 'up'
+            direction = 'down'
             else:
                 direction = 'right'
-elif my_position_x[1] == 1:
-    direction = 'up'
+    elif my_position_x[1] == 1:
+    direction = 'down'
         else:
             direction = 'right'
 elif my_position_x[0] == width-1:
     if my_position_y[0] == 0:
         if my_position_x[1] == width-2:
-            direction = 'down'
+            direction = 'up'
             else:
                 direction = 'left'
     elif my_position_y[0] == height-1:
         if my_position_y[1] == height-2:
             direction = 'left'
             else:
-                direction = 'up'
-elif my_position_x[1] == width-2:
-    direction = 'up'
+                direction = 'down'
+elif width - 2 == my_position_x[1]:
+    direction = 'down'
         else:
             direction = 'left'
 elif my_position_y[0] == 0 and my_position_x[0] != 0 and my_position_x[0] != width-1:
     if my_position_y[1] == 1:
         direction = 'left'
         else:
-            direction = 'down'
+            direction = 'up'
 elif my_position_y[0] == height-1 and my_position_x[0] != 0 and my_position_x[0] != width-1:
     if my_position_y[1] == height - 2:
         direction = 'right'
         else:
-            direction = 'up'
+            direction = 'down'
 else:
     if my_position_x[1] == my_position_x[0] - 1:
         direction = 'right'
         elif my_position_x[1] == my_position_x[0] + 1:
             direction = 'left'
     elif my_position_y[1] == my_position_y - 1:
-        direction = 'down'
+        direction = 'up'
         else:
-            direction = 'up'
+            direction = 'down'
 
 print(direction)
 return move_response(direction)
