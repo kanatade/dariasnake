@@ -85,7 +85,7 @@ def init(data):
 		snakehead.append(list(snake['body'][0].values()))
 		# append all snakes head coordinates to an array of snake heads (eachcoordsofhead array in allsnakearray) (2dArray)
 
-	print("snakexy\n" + "===========\n" + str(snakexy) + "\n")
+    print("snakexy\n" + "===========\n" + str(snakexy) + "\n")
 
 	# snakexy[0][0] is x, snakexy[0][1] is y ; distinctsnakexy[0] is myself, snakexy[0][0] is my head, snakexy[0][0][0]
 	# is my head's x, snakexy[0][0][1] is my head's y
