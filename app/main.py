@@ -49,10 +49,10 @@ def start():
     
     # color blue
     color = "#766CAB"
-    head_type = "evil"
-    tail_type = "bolt"
-    
-    return start_response(color)
+    headType = "evil"
+    tailType = "bolt"
+
+    return start_response(color, headType, tailType)
 
 
 @bottle.post('/move')
