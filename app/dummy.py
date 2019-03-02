@@ -124,7 +124,6 @@ def move():
 
     safe = []
 
-    # avoid all obstacles
     right = [myhead[0] + 1, myhead[1]]
     left = [myhead[0] - 1, myhead[1]]
     down = [myhead[0], myhead[1] + 1]
@@ -140,15 +139,7 @@ def move():
     if up not in snakexy and up[1] != -1:
         safe.append("up")
 
-    # 1. Check every point starting from one corner and moving to the other, in either rows or columns, it doesn't
-    # matter. Once you reach a point that has three or more orthogonally adjacent walls, mark that point as a dead
-    # end, and go to 2.
-    # 2. Find the direction of the empty space next to this point (if any), and check every point in
-    #  that direction. For each of those points: if it has two or more adjacent walls, mark it as a dead end. If it
-    # has only one wall, go to 3. If it has no walls, stop checking in this direction and continue with number 1.
-    # 3. In every direction that does not have a wall, repeat number 2.
-
-    direction = random.choice(safe)
+    direction = random.choice(onesnakexy.append(list(coords.values())))
 
     print("moveresponse\n" + "==========\n" + str(direction) + "\n")
     return move_response(direction)
