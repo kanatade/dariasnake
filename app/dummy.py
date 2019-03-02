@@ -48,8 +48,7 @@ def start():
     # print(json.dumps(data))
 
     color = "#FF0000"
-    # headType = "silly"
-    # tailType = "sharp"
+
 
     return start_response(color)
 
