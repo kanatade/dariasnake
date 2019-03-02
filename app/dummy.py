@@ -48,7 +48,8 @@ def start():
     # print(json.dumps(data))
 
     color = "#FF0000"
-
+    # headType = "silly"
+    # tailType = "sharp"
 
     return start_response(color)
 
@@ -71,6 +72,7 @@ def init(data):
     distinctsnakexy = []
     snakexy = []
     snakehead = []
+    snaketop = []
     # snakexy = datastore["board"]["snakes"]['body']
 
     for snake in datastore['board']['snakes']:
@@ -81,9 +83,9 @@ def init(data):
         distinctsnakexy.append(onesnakexy)
         # append all snakes body to an array of snake bodies (eachcoords array in onesnakebody array in allsnake
         # array) (3dArray)
-        snakehead.append(list(snake['body'][0].values()))
-    # append all snakes head coordinates to an array of snake heads (eachcoordsofhead array in allsnakearray) (2dArray)
 
+    # append all snakes head coordinates to an array of snake heads (eachcoordsofhead array in allsnakearray) (2dArray)
+        snaketop = snakehead.append(list(snake['body'][0].values()))
     print("snakexy\n" + "===========\n" + str(snakexy) + "\n")
 
     # snakexy[0][0] is x, snakexy[0][1] is y ; distinctsnakexy[0] is myself, snakexy[0][0] is my head, snakexy[0][0][0]
@@ -108,7 +110,7 @@ def init(data):
 
     print("walls\n" + "==========\n" + str(wall) + "\n")
 
-    return wall, myhead, mybody, snakehead, snakexy, height, width
+    return wall, myhead, mybody, snakehead, snaketop, snakexy, height, width
 
 
 @bottle.post('/move')
@@ -120,10 +122,11 @@ def move():
     """
     print("move part")
     print("================\n")
-    wall, myhead, mybody, snakehead, snakexy, height, width = init(data)
+    wall, myhead, mybody, snakehead, snakexy, snaketop,  height, width = init(data)
 
     safe = []
 
+    # avoid all obstacles
     right = [myhead[0] + 1, myhead[1]]
     left = [myhead[0] - 1, myhead[1]]
     down = [myhead[0], myhead[1] + 1]
@@ -139,7 +142,15 @@ def move():
     if up not in snakexy and up[1] != -1:
         safe.append("up")
 
-    direction = random.choice(onesnakexy.append(list(coords.values())))
+    # 1. Check every point starting from one corner and moving to the other, in either rows or columns, it doesn't
+    # matter. Once you reach a point that has three or more orthogonally adjacent walls, mark that point as a dead
+    # end, and go to 2.
+    # 2. Find the direction of the empty space next to this point (if any), and check every point in
+    #  that direction. For each of those points: if it has two or more adjacent walls, mark it as a dead end. If it
+    # has only one wall, go to 3. If it has no walls, stop checking in this direction and continue with number 1.
+    # 3. In every direction that does not have a wall, repeat number 2.
+
+    direction = random.choice(safe)
 
     print("moveresponse\n" + "==========\n" + str(direction) + "\n")
     return move_response(direction)
